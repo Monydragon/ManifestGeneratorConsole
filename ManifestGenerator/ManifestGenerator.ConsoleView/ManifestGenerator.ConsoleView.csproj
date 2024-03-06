@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <AssemblyName>Dev Blog Manifest Generator</AssemblyName>
+        <ApplicationIcon>app_icon.ico</ApplicationIcon>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <PublishSingleFile>true</PublishSingleFile>
+        <RuntimeIdentifier>win-x64</RuntimeIdentifier> <!-- Adjust this as needed -->
+        <SelfContained>true</SelfContained>
+        <IncludePdb>false</IncludePdb>
+        <DebugType>none</DebugType>
+        <DebugSymbols>false</DebugSymbols> 
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <PublishTrimmed>true</PublishTrimmed> 
+        <PublishReadyToRun>true</PublishReadyToRun>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\ManifestGenerator.Services\ManifestGenerator.Services.csproj" />
+    </ItemGroup>
+
+</Project>
