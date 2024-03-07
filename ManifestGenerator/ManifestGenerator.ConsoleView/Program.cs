@@ -11,10 +11,10 @@ namespace ManifestGenerator.ConsoleView
         {
             bool exit = false;
             bool headless = false;
-            string? blogPostFolderName = "DevBlog";
+            string? blogPostFolderName = "devblog";
             string? targetDirectory = Path.Combine(Directory.GetCurrentDirectory(), blogPostFolderName);
             string? blogPostDirectory = Path.Combine(Directory.GetCurrentDirectory(), blogPostFolderName);
-            string manifestName = "Dev_Blog_Manifest.json"; // Default manifest name
+            string manifestName = "dev_blog_manifest.json"; // Default manifest name
 
             // Manual argument parsing
             for (int i = 0; i < args.Length; i++)
@@ -73,7 +73,7 @@ namespace ManifestGenerator.ConsoleView
                     case "1":
                         targetDirectory = Path.Combine(Directory.GetCurrentDirectory(), blogPostFolderName);
                         blogPostDirectory = targetDirectory;
-                        manifestName = "Dev_Blog_Manifest.json";
+                        manifestName = "dev_blog_manifest.json";
                         await GenerateManifest(targetDirectory, blogPostDirectory, manifestName);
                         exit = true;
                         break;

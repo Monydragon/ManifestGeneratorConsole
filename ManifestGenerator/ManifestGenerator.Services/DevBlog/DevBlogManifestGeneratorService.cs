@@ -22,7 +22,7 @@ public class DevBlogManifestGeneratorService : IDevBlogManifestGeneratorService
         switch (devBlogFolderName)
         {
             case null when useDefaultFolderName:
-                targetDirectory = Path.Combine( Directory.GetCurrentDirectory(), "DevBlog");
+                targetDirectory = Path.Combine( Directory.GetCurrentDirectory(), "devblog");
                 return await GenerateManifestAsync(targetDirectory);
             case null:
                 return (false, string.Empty, string.Empty);
@@ -40,7 +40,7 @@ public class DevBlogManifestGeneratorService : IDevBlogManifestGeneratorService
     /// <returns></returns>
     public async Task<(bool success, string manifestJson, string outputPath)> GenerateManifestAsync(string targetDirectory)
     {
-        var manifestFileName = "Dev_Blog_Manifest.json";
+        var manifestFileName = "dev_blog_manifest.json";
         return await GenerateManifestAsync(targetDirectory, manifestFileName);
     }
 
@@ -125,8 +125,10 @@ public class DevBlogManifestGeneratorService : IDevBlogManifestGeneratorService
                         {
                             var fileName = Path.GetFileName(file);
                             var extension = Path.GetExtension(file).ToLowerInvariant();
-                            // Get the relative path with respect to the 'wwwroot' directory
-                            var relativePath = Path.GetRelativePath(blogPostDirectory, file).Replace("\\", "/"); // Convert to web-friendly path
+                            // Get the relative path
+                            var blogPostDirectoryInfo = new DirectoryInfo(blogPostDirectory);
+                            var parentDirectory = blogPostDirectoryInfo.Parent?.FullName;
+                            var relativePath = parentDirectory != null ? Path.GetRelativePath(parentDirectory, file).Replace("\\", "/") : string.Empty;
 
                             if (FileTypes.DocumentExtensions.Contains(extension))
                             {

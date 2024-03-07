@@ -13,9 +13,6 @@
         <IncludePdb>false</IncludePdb>
         <DebugType>none</DebugType>
         <DebugSymbols>false</DebugSymbols> 
-        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
-        <PublishTrimmed>true</PublishTrimmed> 
-        <PublishReadyToRun>true</PublishReadyToRun>
     </PropertyGroup>
 
     <ItemGroup>
